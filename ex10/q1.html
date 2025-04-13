@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Data Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hospital Patient Data Analytics</h2>
+
+    <div class="container">
+        <button onclick="displaySortedPatients()">Sort by Age (Descending)</button>
+        <table id="patientTable"></table>
+    </div>
+
+    <div class="container">
+        <label for="checkPId">Enter P-Id to Check: </label>
+        <input type="number" id="checkPId">
+        <button onclick="checkPatient()">Check P-Id</button>
+        <p id="checkResult"></p>
+    </div>
+
+    <div class="container">
+        <label for="minAge">Min Age: </label>
+        <input type="number" id="minAge">
+        <label for="maxAge">Max Age: </label>
+        <input type="number" id="maxAge">
+        <button onclick="filterByAge()">Filter</button>
+        <table id="filteredTable"></table>
+    </div>
+
+    <script>
+        const patients = [
+            { P_Id: 1, Name: "Alen", Age: 39 },
+            { P_Id: 2, Name: "Deena", Age: 47 },
+            { P_Id: 3, Name: "Diana", Age: 21 },
+            { P_Id: 4, Name: "Jack", Age: 54 },
+            { P_Id: 5, Name: "Jake", Age: 23 },
+            { P_Id: 6, Name: "Kelvin", Age: 61 },
+            { P_Id: 7, Name: "Louis", Age: 69 },
+            { P_Id: 8, Name: "Rex", Age: 49 }
+        ];
+
+        function displaySortedPatients() {
+            const sortedPatients = patients.slice().sort((a, b) => b.Age - a.Age);
+            displayTable(sortedPatients, "patientTable");
+        }
+
+        function checkPatient() {
+            const id = parseInt(document.getElementById("checkPId").value);
+            const exists = patients.some(patient => patient.P_Id === id);
+            document.getElementById("checkResult").innerText = exists 
+                ? `P-Id ${id} is present.` 
+                : `P-Id ${id} is NOT present.`;
+        }
+
+        function filterByAge() {
+            const minAge = parseInt(document.getElementById("minAge").value);
+            const maxAge = parseInt(document.getElementById("maxAge").value);
+            const filteredPatients = patients.filter(patient => patient.Age >= minAge && patient.Age <= maxAge);
+            displayTable(filteredPatients, "filteredTable");
+        }
+
+        function displayTable(data, tableId) {
+            const table = document.getElementById(tableId);
+            table.innerHTML = "";
+            if (data.length === 0) {
+                table.innerHTML = "<tr><td colspan='3'>No records found</td></tr>";
+                return;
+            }
+            const headerRow = `<tr><th>P-Id</th><th>Name</th><th>Age</th></tr>`;
+            const rows = data.map(p => `<tr><td>${p.P_Id}</td><td>${p.Name}</td><td>${p.Age}</td></tr>`).join("");
+            table.innerHTML = headerRow + rows;
+        }
+    </script>
+
+</body>
+</html>

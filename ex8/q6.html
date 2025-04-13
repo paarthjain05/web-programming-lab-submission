@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circus Ticket Booth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            margin-bottom: 20px;
+        }
+
+        label, input, button {
+            margin: 5px;
+        }
+
+        #totalAmount {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Circus Ticket Booth</h1>
+    <div class="container">
+        <label for="adultTickets">Adult Tickets (₹20 each): </label>
+        <input type="number" id="adultTickets" min="0" value="0">
+    </div>
+    <div class="container">
+        <label for="childTickets">Child Tickets (₹10 each): </label>
+        <input type="number" id="childTickets" min="0" value="0">
+    </div>
+    <div class="container">
+        <button onclick="calculateTotal()">Total</button>
+    </div>
+    <div id="totalAmount">
+        <label>Total Amount: ₹</label>
+        <input type="text" id="totalAmountDisplay" readonly>
+    </div>
+
+    <script src="ex8qq1.js"></script>
+
+</body>
+</html>

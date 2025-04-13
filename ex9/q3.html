@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-size: 16px;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>BMI Calculator</h2>
+
+        <label for="gender">Select Gender:</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+
+        <label for="feet">Enter your height (feet):</label>
+        <input type="number" id="feet" placeholder="Height in feet" required><br>
+
+        <label for="inches">Enter your height (inches):</label>
+        <input type="number" id="inches" placeholder="Height in inches" required><br>
+
+        <label for="weight">Enter your weight (in pounds):</label>
+        <input type="number" id="weight" placeholder="Weight in pounds" required><br>
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <table id="resultTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Height</th>
+                    <th>Weight (lbs)</th>
+                    <th>BMI</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            // Get the user input values
+            var gender = document.getElementById('gender').value;
+            var feet = parseInt(document.getElementById('feet').value);
+            var inches = parseInt(document.getElementById('inches').value);
+            var weight = parseInt(document.getElementById('weight').value);
+
+            if (isNaN(feet) || isNaN(inches) || isNaN(weight) || feet <= 0 || inches < 0 || weight <= 0) {
+                alert("Please enter valid values for height and weight.");
+                return;
+            }
+
+            var heightInInches = (feet * 12) + inches;
+            var bmi = (703 * weight) / (heightInInches * heightInInches);
+            bmi = bmi.toFixed(2); 
+            var status = "";
+            if (bmi < 18.5) {
+                status = "Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                status = "Ideal Range";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                status = "Overweight";
+            } else {
+                status = "Obese";
+            }
+
+            var resultRow = `
+                <tr>
+                    <td>Anonymous</td>
+                    <td>${gender}</td>
+                    <td>${feet} ft ${inches} in</td>
+                    <td>${weight} lbs</td>
+                    <td>${bmi}</td>
+                    <td>${status}</td>
+                </tr>
+            `;
+
+            document.getElementById('resultBody').innerHTML = resultRow;
+
+            document.getElementById('resultTable').style.display = 'table';
+        }
+    </script>
+
+</body>
+</html>

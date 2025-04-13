@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Daily Temperature</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Temperature Data for New York City</h2>
+
+    <table id="temperatureTable">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Temperature (°F)</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <p id="summary"></p>
+
+    <script>
+        const temperatures = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+        
+        let hotDays = 0;
+        let pleasantDays = 0;
+        let coldDays = 0;
+
+        const tableBody = document.querySelector("#temperatureTable tbody");
+
+        temperatures.forEach((temp, index) => {
+            let category = '';
+            
+            if (temp >= 85) {
+                category = 'HOT';
+                hotDays++;
+            } else if (temp >= 60) {
+                category = 'PLEASANT';
+                pleasantDays++;
+            } else {
+                category = 'COLD';
+                coldDays++;
+            }
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>Day ${index + 1}</td>
+                <td>${temp} °F</td>
+                <td>${category}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        const summaryText = `
+            <strong>Summary:</strong><br>
+            Number of HOT days: ${hotDays}<br>
+            Number of PLEASANT days: ${pleasantDays}<br>
+            Number of COLD days: ${coldDays}
+        `;
+        document.getElementById('summary').innerHTML = summaryText;
+    </script>
+
+</body>
+</html>

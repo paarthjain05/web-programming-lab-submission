@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Form</title>
+        <style>
+            /* Container style for each section */
+            .section-box {
+                border: 2px solid #ccc;
+                padding: 20px;
+                margin-bottom: 20px;
+                width: 60%; /* Adjust width as needed */
+                box-sizing: border-box;
+            }
+
+            .section-box h3 {
+                margin-top: 0;
+            }
+
+            /* To style the textarea */
+            textarea {
+                width: 100%;
+                height: 150px;
+            }
+
+            /* To style buttons */
+            button {
+                margin-top: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            /* General form styles */
+            form {
+                margin: 0 auto;
+                width: 70%; /* Adjust form width */
+                box-sizing: border-box;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>HTML Forms</h2>
+        <form>
+            <!-- Login Section -->
+            <div class="section-box">
+                <h3>Login</h3>
+                <label for="username">Username*</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password*</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+            </div>
+
+            <!-- Gender Section -->
+            <div class="section-box">
+                <h3>Gender</h3>
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female" required><br><br>
+            </div>
+
+            <!-- Programming Skills Section -->
+            <div class="section-box">
+                <h3>Programming Skills</h3>
+                <label for="java">Java</label>
+                <input type="checkbox" id="java" name="programming_skills" value="java" required>
+                <label for="cpp">C++</label>
+                <input type="checkbox" id="cpp" name="programming_skills" value="cpp" required>
+                <label for="c_hash">C#</label>
+                <input type="checkbox" id="c_hash" name="programming_skills" value="c_hash" required><br><br>
+            </div>
+
+            <!-- Fruit Selection Section -->
+            <div class="section-box">
+                <h3>Choose a Fruit</h3>
+                <label for="fruit">Select Fruit:</label><br>
+                <select id="fruit" name="fruit">
+                    <optgroup label="Pome">
+                        <option value="apple">Apple</option>
+                        <option value="pear">Pear</option>
+                    </optgroup>
+                    <optgroup label="Citrus">
+                        <option value="orange">Orange</option>
+                        <option value="lime">Lime</option>
+                        <option value="grapefruite">Grapefruit</option>
+                        <option value="mandarins">Mandarins</option>
+                    </optgroup>
+                    <optgroup label="Stone">
+                        <option value="peach">Peach</option>
+                        <option value="plum">Plum</option>
+                        <option value="apricot">Apricot</option>
+                        <option value="nectarins">Nectarins</option>
+                    </optgroup>
+                    <optgroup label="Exotic">
+                        <option value="banana">Banana</option>
+                        <option value="mango">Mango</option>
+                    </optgroup>
+                    <optgroup label="Berries">
+                        <option value="strawberries">Strawberries</option>
+                        <option value="blueberries">Blueberries</option>
+                    </optgroup>
+                    <optgroup label="Melons">
+                        <option value="watermelon">Watermelon</option>
+                        <option value="muskmelon">Muskmelon</option>
+                    </optgroup>
+                </select><br><br>
+            </div>
+
+            <!-- Textarea Section -->
+            <div class="section-box">
+                <h3>Additional Information</h3>
+                <textarea placeholder="Enter your Text Here"></textarea><br><br>
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit">SEND</button>
+            <button type="reset">RESET</button>
+        </form>
+    </body>
+</html>

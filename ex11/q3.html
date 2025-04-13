@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1422</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div id="parent">
+        <span id="timer">timer</span>
+
+        <form id="signupform">
+            <h1>Test JavaScript Form Validation</h1>
+            
+            <label>Name:<input id="name" name="name" required></label>
+            <label>Address:<input id="address" name="address"></label>
+            <label>Zipcode:<input id="zipcode" name="zipcode" required></label>
+            
+            <label>Select Country: 
+                <select id="country" name="country" required>
+                    <option value="">Select</option>
+                    <option value="India">India</option>
+                    <option value="Other">Other</option>
+                </select>
+            </label>
+
+            <label>Gender:
+                <input type="radio" id="male" value="Male" name="gender" required> Male
+                <input type="radio" id="female" value="Female" name="gender" required> Female
+            </label>
+
+            <label>Preferences:
+                <input type="checkbox" id="red" value="Red" name="preferences"> Red
+                <input type="checkbox" id="blue" value="Blue" name="preferences"> Blue
+                <input type="checkbox" id="green" value="Green" name="preferences"> Green
+            </label>
+
+            <label>Phone:<input id="phone" name="phone" required></label>
+            <label>E-mail:<input id="email" name="email" type="email" required></label>
+            <label>Password:<input id="password" name="password" type="password" required></label>
+            <label>Re-enter Password:<input id="verifyPassword" name="verifyPassword" type="password" required></label>
+            <label>PAN no:<input id="pan" name="pan" type="text"></label>
+            
+            <div id="buttoncontainer">
+                <button type="submit">Send</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

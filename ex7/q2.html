@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Animals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("placeholder");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            line-height: 1.5;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+        .rainbow {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .description {
+            column-count: 3;
+            column-gap: 20px;
+            line-height: 30pt;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 0 20px;
+            border-radius: 10px;
+        }
+        .play-area {
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        #ball {
+            animation: ballAnimation 5s infinite;
+        }
+        @keyframes ballAnimation {
+            0% {
+                transform: translate(0, 0) rotate(0deg) skew(0deg, 0deg);
+            }
+            25% {
+                transform: translate(50px, -50px) rotate(45deg) skew(10deg, 5deg);
+            }
+            50% {
+                transform: translate(100px, 0) rotate(90deg) skew(0deg, 0deg);
+            }
+            75% {
+                transform: translate(50px, 50px) rotate(135deg) skew(-10deg, -5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(180deg) skew(0deg, 0deg);
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="rainbow">Welcome to the Pet Animals World</h1>
+    </header>
+    <section class="content">
+        <h2>About Pets</h2>
+        <div class="description">
+            <p>
+                Pets are wonderful companions that bring joy and love into our lives.
+                From dogs and cats to rabbits and birds, each pet has its unique personality and charm.
+            </p>
+            <p>
+                Dogs are loyal friends, cats are affectionate yet independent, and rabbits are gentle and fun-loving.
+                No matter the pet you choose, the bond you create with them is priceless.
+            </p>
+            <p>
+                Regular care, healthy food, and a lot of love are essential for the well-being of your pets.
+                They become a part of your family and fill your home with happiness.
+            </p>
+        </div>
+    </section>
+    <section class="play-area">
+        <h2>Play Area</h2>
+        <div class="dog-ball">
+            <!-- SVG Ball -->
+            <svg id="ball" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" fill="red" stroke="black" stroke-width="2" />
+            </svg>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Pet Animals World</p>
+    </footer>
+</body>
+</html>

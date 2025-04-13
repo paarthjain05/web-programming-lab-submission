@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1422</title>
+</head>
+<body>
+    <script>
+        let timer;
+        let seconds = 0;
+
+        const display = document.createElement("span");
+        const startButton = document.createElement("button");
+        const stopButton = document.createElement("button");
+        const resetButton = document.createElement("button");
+        startButton.innerText = "Start";
+        stopButton.innerText = "Stop";
+        resetButton.innerText = "Reset";
+        display.innerText = "0s";
+
+        startButton.onclick= ()=>{
+            if (!timer){
+                timer = setInterval(()=>{
+                    seconds=seconds+0.01;
+                    display.innerText=`${seconds}s`
+                },10)
+            }
+        }
+
+        stopButton.onclick = () =>{
+            clearInterval(timer);
+            timer = null;
+        }
+
+        resetButton.onclick = () =>{
+            clearInterval(timer);
+            timer=null;
+            seconds = 0;
+            display.innerText=`0s`
+        }
+
+        document.body.appendChild(display);
+        document.body.appendChild(startButton);
+        document.body.appendChild(stopButton);
+        document.body.appendChild(resetButton);
+
+        //dob part
+
+        const dobInput = document.createElement("input")
+        const dobDisplay = document.createElement("span")
+        dobInput.type="date"
+        dobInput.onchange = () => {
+            if (dobInput.value){
+                let birthDate = new Date(dobInput.value)
+                let age = new Date().getFullYear() - birthDate.getFullYear();
+                dobDisplay.innerText = `\nYour age is ${age}`
+            }
+        }
+
+        document.body.appendChild(dobInput)
+        document.body.appendChild(dobDisplay)
+
+        const textArea = document.createElement("textarea")
+        const countDisplay = document.createElement("span")
+        countDisplay.innerText=`\nThere are exactly 0 characters in the textarea.`
+
+        textArea.oninput = () =>{
+            countDisplay.innerText=`\nThere are exactly ${textArea.value.length} characters in the textarea.`
+        }
+
+        document.body.appendChild(document.createElement("br"))
+        document.body.appendChild(textArea)
+        document.body.appendChild(countDisplay)
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Confirmation</title>
+</head>
+<body>
+    <h2>Student Registration</h2>
+    <script>
+        function checkStudentStatus() {
+            let regNumber = prompt("Please enter your registration number:");
+            
+            let isStudent = confirm("Are you a student?");
+            
+            if (isStudent) {
+                alert("You are confirmed as a student. Registration Number: " + regNumber);
+            } else {
+                alert("You are not a student. Registration Number: " + regNumber);
+            }
+        }
+
+        checkStudentStatus();
+    </script>
+</body>
+</html>

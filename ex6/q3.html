@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>23BCE1422 - Favorite Singer</title>
+<style>
+.myphto {
+  width: 150px;
+  height: 150px;
+  border: 2px solid orange;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  animation: borderColorChange 5s infinite;
+}
+
+.myphto:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes borderColorChange {
+  0% { border-color: red; }
+  50% { border-color: green; }
+  100% { border-color: blue; }
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 1.8em;
+  animation: fontColorChange 5s infinite, fontSizeChange 5s infinite;
+}
+
+@keyframes fontColorChange {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: green; }
+}
+
+@keyframes fontSizeChange {
+  0% { font-size: 1.5em; }
+  50% { font-size: 2em; }
+  100% { font-size: 1.5em; }
+}
+</style>
+</head>
+<body>
+
+<h1>My Favorite Singer</h1>
+<img src="placeholder" alt="Favorite Singer" class="myphto" title="Favorite Singer">
+
+</body>
+</html>

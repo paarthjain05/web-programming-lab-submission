@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Registration and Name</title>
+</head>
+<body>
+
+    <h1>Enter Registration Number and Name</h1>
+    <label for="regNo">Registration Number: </label>
+    <input type="text" id="regNo"><br><br>
+
+    <label for="name">Name: </label>
+    <input type="text" id="name"><br><br>
+
+    <button onclick="displayInfo()">Display</button>
+
+    <script>
+        function displayInfo() {
+            var regNo = document.getElementById('regNo').value;
+            var name = document.getElementById('name').value;
+
+            document.write('<div style="border: 5px solid red; font-weight: bold; color: black; padding: 20px; width: 300px; margin-bottom: 10px;">' + regNo + '</div>');
+            
+            var nameBox = document.createElement('div');
+            nameBox.style.border = '2px solid black';
+            nameBox.style.fontWeight = 'normal';
+            nameBox.style.color = 'red';
+            nameBox.style.fontSize = '20px';
+            nameBox.style.padding = '15px';
+            nameBox.style.width = '300px';
+            nameBox.textContent = name;
+
+            document.body.appendChild(nameBox);
+        }
+    </script>
+
+</body>
+</html>

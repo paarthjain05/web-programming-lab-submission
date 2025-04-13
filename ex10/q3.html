@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #6C7A89;
+            padding: 40px;
+            border-radius: 10px;
+            width: 700px;
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .product img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .product label {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        .quantity {
+            width: 60px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #F2784B;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Grocery Order Form</h2>
+
+        <div class="input-group">
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone">
+        </div>
+
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+        </div>
+
+        <h3>Products</h3>
+
+        <div class="product">
+            <img src="apple.png" alt="Apple">
+            <input type="checkbox" id="appleCheck">
+            <label for="appleCheck">Apple (₹100/kg)</label>
+            <input type="number" id="appleQty" class="quantity" min="0">
+        </div>
+
+        <div class="product">
+            <img src="banana.png" alt="Banana">
+            <input type="checkbox" id="bananaCheck">
+            <label for="bananaCheck">Banana (₹50/kg)</label>
+            <input type="number" id="bananaQty" class="quantity" min="0">
+        </div>
+
+        <div class="product">
+            <img src="avocado.png" alt="Avocado">
+            <input type="checkbox" id="avocadoCheck">
+            <label for="avocadoCheck">Avocado (₹700/kg)</label>
+            <input type="number" id="avocadoQty" class="quantity" min="0">
+        </div>
+
+        <button class="submit-btn" onclick="submitOrder()">Submit Order</button>
+    </div>
+
+    <script>
+        function submitOrder() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+
+            let appleQty = document.getElementById("appleCheck").checked ? document.getElementById("appleQty").value || 0 : 0;
+            let bananaQty = document.getElementById("bananaCheck").checked ? document.getElementById("bananaQty").value || 0 : 0;
+            let avocadoQty = document.getElementById("avocadoCheck").checked ? document.getElementById("avocadoQty").value || 0 : 0;
+
+            let orderDetails = { name, phone, email, appleQty, bananaQty, avocadoQty };
+            localStorage.setItem("order", JSON.stringify(orderDetails));
+            alert("Order submitted successfully!");
+        }
+    </script>
+</body>
+</html>
